@@ -1,0 +1,8 @@
+{
+    "default": true,
+    "no-emphasis-as-heading": false,
+    "no-hard-tabs": true,
+    "ul-indent": {
+        "indent": 4
+    }
+}
