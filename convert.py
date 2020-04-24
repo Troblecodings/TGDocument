@@ -3,7 +3,7 @@ import subprocess
 
 markdownDir = "markdown"
 latexDir = "crosscompiled/latex"
-htmlDir = "crosscompiled/html"
+htmlDir = "docs/html"
 mainTexFileName = "main.tex"
 
 
