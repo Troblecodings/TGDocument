@@ -1,24 +1,27 @@
-# Glossar
+# Glossary
 
-**Inhalt**
+**Contents**
 
-Die wesentlichen fachlichen und technischen Begriffe, die Stakeholder im
-Zusammenhang mit dem System verwenden.
+The most important domain and technical terms that your stakeholders use
+when discussing the system.
 
-Nutzen Sie das Glossar ebenfalls als Übersetzungsreferenz, falls Sie in
-mehrsprachigen Teams arbeiten.
+You can also see the glossary as source for translations if you work in
+multi-language teams.
 
 **Motivation**
 
-Sie sollten relevante Begriffe klar definieren, so dass alle Beteiligten
+You should clearly define your terms, so that all stakeholders
 
-1. diese Begriffe identisch verstehen, und
-2. vermeiden, mehrere Begriffe für die gleiche Sache zu haben.
+- have an identical understanding of these terms
+- do not use synonyms and homonyms
 
-- Zweispaltige Tabelle mit \<Begriff\> und \<Definition\>
-- Eventuell weitere Spalten mit Übersetzungen, falls notwendig.
+**Form**
 
-| Begriff         | Definition         |
-| --------------- | ------------------ |
-| *\<Begriff-1\>* | *\<Definition-1\>* |
-| *\<Begriff-2\>* | *\<Definition-2\>* |
+A table with columns \<Term\> and \<Definition\>.
+
+Potentially more columns in case you need translations.
+
+| Term         | Definition         |
+| ------------ | ------------------ |
+| *\<Term-1\>* | *\<Definition-1\>* |
+| *\<Term-2\>* | *\<Definition-2\>* |

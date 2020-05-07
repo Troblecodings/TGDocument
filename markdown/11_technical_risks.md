@@ -1,20 +1,21 @@
-# Risiken und technische Schulden
+# Risks and Technical Debts
 
-**Inhalt**
+**Contents**
 
-Eine nach Prioritäten geordnete Liste der erkannten Architekturrisiken
-und/oder technischen Schulden.
+A list of identified technical risks or technical debts, ordered by
+priority
 
-> Risikomanagement ist Projektmanagement für Erwachsene.
->
-> ---  Tim Lister Atlantic Systems Guild
+**Motivation**
 
-Unter diesem Motto sollten Sie Architekturrisiken und/oder technische
-Schulden gezielt ermitteln, bewerten und Ihren Management-Stakeholdern
-(z.B. Projektleitung, Product-Owner) transparent machen.
+"Risk management is project management for grown-ups" (Tim Lister,
+Atlantic Systems Guild.)
+
+This should be your motto for systematic detection and evaluation of
+risks and technical debts in the architecture, which will be needed by
+management stakeholders (e.g. project managers, product owners) as part
+of the overall risk analysis and measurement planning.
 
 **Form**
 
-Liste oder Tabelle von Risiken und/oder technischen Schulden, eventuell
-mit vorgeschlagenen Maßnahmen zur Risikovermeidung, Risikominimierung
-oder dem Abbau der technischen Schulden.
+List of risks and/or technical debts, probably including suggested
+measures to minimize, mitigate or avoid risks or reduce technical debts.

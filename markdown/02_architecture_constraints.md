@@ -1,23 +1,21 @@
-# Randbedingungen
+# Architecture Constraints
 
-**Inhalt**
+**Contents**
 
-Randbedingungen und Vorgaben, die ihre Freiheiten bezüglich Entwurf,
-Implementierung oder Ihres Entwicklungsprozesses einschränken. Diese
-Randbedingungen gelten manchmal organisations- oder firmenweit über die
-Grenzen einzelner Systeme hinweg.
+Any requirement that constrains software architects in their freedom of
+design and implementation decisions or decision about the development
+process. These constraints sometimes go beyond individual systems and
+are valid for whole organizations and companies.
 
 **Motivation**
 
-Für eine tragfähige Architektur sollten Sie genau wissen, wo Ihre
-Freiheitsgrade bezüglich der Entwurfsentscheidungen liegen und wo Sie
-Randbedingungen beachten müssen. Sie können Randbedingungen vielleicht
-noch verhandeln, zunächst sind sie aber da.
+Architects should know exactly where they are free in their design
+decisions and where they must adhere to constraints. Constraints must
+always be dealt with; they may be negotiable, though.
 
 **Form**
 
-Einfache Tabellen der Randbedingungen mit Erläuterungen. Bei Bedarf
-unterscheiden Sie technische, organisatorische und politische
-Randbedingungen oder übergreifende Konventionen (beispielsweise
-Programmier- oder Versionierungsrichtlinien, Dokumentations- oder
-Namenskonvention).
+Simple tables of constraints with explanations. If needed you can
+subdivide them into technical constraints, organizational and political
+constraints and conventions (e.g. programming or versioning guidelines,
+documentation or naming conventions)

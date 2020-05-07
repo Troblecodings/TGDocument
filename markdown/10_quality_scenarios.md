@@ -1,72 +1,75 @@
-# Qualitätsanforderungen
+# Quality Requirements
 
-**Inhalt**
+**Content**
 
-Dieser Abschnitt enthält möglichst alle Qualitätsanforderungen als
-Qualitätsbaum mit Szenarien. Die wichtigsten davon haben Sie bereits in
-Abschnitt 1.2 (Qualitätsziele) hervorgehoben.
+This section contains all quality requirements as quality tree with
+scenarios. The most important ones have already been described in
+section 1.2. (quality goals)
 
-Nehmen Sie hier auch Qualitätsanforderungen geringerer Priorität auf,
-deren Nichteinhaltung oder -erreichung geringe Risiken birgt.
-
-**Motivation**
-
-Weil Qualitätsanforderungen die Architekturentscheidungen oft maßgeblich
-beeinflussen, sollten Sie die für Ihre Stakeholder relevanten
-Qualitätsanforderungen kennen, möglichst konkret und operationalisiert.
-
-## Qualitätsbaum
-
-**Inhalt**
-
-Der Qualitätsbaum (à la ATAM) mit Qualitätsszenarien an den Blättern.
+Here you can also capture quality requirements with lesser priority,
+which will not create high risks when they are not fully achieved.
 
 **Motivation**
 
-Die mit Prioritäten versehene Baumstruktur gibt Überblick über
-die --- oftmals zahlreichen --- Qualitätsanforderungen.
+Since quality requirements will have a lot of influence on architectural
+decisions you should know for every stakeholder what is really important
+to them, concrete and measurable.
 
-- Baumartige Verfeinerung des Begriffes „Qualität", mit „Qualität"
-    oder „Nützlichkeit" als Wurzel.
+## Quality Tree
 
-- Mindmap mit Qualitätsoberbegriffen als Hauptzweige
+**Content**
 
-In jedem Fall sollten Sie hier Verweise auf die Qualitätsszenarien des
-folgenden Abschnittes aufnehmen.
-
-## Qualitätsszenarien
-
-**Inhalt**
-
-Konkretisierung der (in der Praxis oftmals vagen oder impliziten)
-Qualitätsanforderungen durch (Qualitäts-)Szenarien.
-
-Diese Szenarien beschreiben, was beim Eintreffen eines Stimulus auf ein
-System in bestimmten Situationen geschieht.
-
-Wesentlich sind zwei Arten von Szenarien:
-
-- Nutzungsszenarien (auch bekannt als Anwendungs- oder
-    Anwendungsfallszenarien) beschreiben, wie das System zur Laufzeit
-    auf einen bestimmten Auslöser reagieren soll. Hierunter fallen auch
-    Szenarien zur Beschreibung von Effizienz oder Performance. Beispiel:
-    Das System beantwortet eine Benutzeranfrage innerhalb einer Sekunde.
-
-- Änderungsszenarien beschreiben eine Modifikation des Systems oder
-    seiner unmittelbaren Umgebung. Beispiel: Eine zusätzliche
-    Funktionalität wird implementiert oder die Anforderung an ein
-    Qualitätsmerkmal ändert sich.
+The quality tree (as defined in ATAM -- Architecture Tradeoff Analysis
+Method) with quality/evaluation scenarios as leafs.
 
 **Motivation**
 
-Szenarien operationalisieren Qualitätsanforderungen und machen deren
-Erfüllung mess- oder entscheidbar.
-
-Insbesondere wenn Sie die Qualität Ihrer Architektur mit Methoden wie
-ATAM überprüfen wollen, bedürfen die in Abschnitt 1.2 genannten
-Qualitätsziele einer weiteren Präzisierung bis auf die Ebene von
-diskutierbaren und nachprüfbaren Szenarien.
+The tree structure with priorities provides an overview for a sometimes
+large number of quality requirements.
 
 **Form**
 
-Entweder tabellarisch oder als Freitext.
+The quality tree is a high-level overview of the quality goals and
+requirements:
+
+- tree-like refinement of the term \"quality\". Use \"quality\" or
+    \"usefulness\" as a root
+- a mind map with quality categories as main branches
+
+In any case the tree should include links to the scenarios of the
+following section.
+
+## Quality Scenarios
+
+**Contents**
+
+Concretization of (sometimes vague or implicit) quality requirements
+using (quality) scenarios.
+
+These scenarios describe what should happen when a stimulus arrives at
+the system.
+
+For architects, two kinds of scenarios are important:
+
+- Usage scenarios (also called application scenarios or use case
+    scenarios) describe the system's runtime reaction to a certain
+    stimulus. This also includes scenarios that describe the system's
+    efficiency or performance. Example: The system reacts to a user's
+    request within one second.
+- Change scenarios describe a modification of the system or of its
+    immediate environment. Example: Additional functionality is
+    implemented or requirements for a quality attribute change.
+
+**Motivation**
+
+Scenarios make quality requirements concrete and allow to more easily
+measure or decide whether they are fulfilled.
+
+Especially when you want to assess your architecture using methods like
+ATAM you need to describe your quality goals (from section 1.2) more
+precisely down to a level of scenarios that can be discussed and
+evaluated.
+
+**Form**
+
+Tabular or free form text.

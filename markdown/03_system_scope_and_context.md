@@ -1,79 +1,78 @@
-# Kontextabgrenzung
+# System Scope and Context
 
-**Inhalt**
+**Contents**
 
-Die Kontextabgrenzung grenzt das System von allen
-Kommunikationsbeziehungen (Nachbarsystemen und Benutzerrollen) ab. Sie
-legt damit die externen Schnittstellen fest.
+System scope and context - as the name suggests - delimits your system
+(i.e. your scope) from all its communication partners (neighboring
+systems and users, i.e. the context of your system). It thereby
+specifies the external interfaces.
 
-Differenzieren Sie fachliche (fachliche Ein- und Ausgaben) und
-technische Kontexte (Kanäle, Protokolle, Hardware), falls nötig.
-
-**Motivation**
-
-Die fachlichen und technischen Schnittstellen zur Kommunikation gehören
-zu den kritischsten Aspekten eines Systems. Stellen Sie sicher, dass Sie
-diese komplett verstanden haben.
-
-**Form**
-
-Verschiedene Optionen:
-
-- Diverse Kontextdiagramme
-
-- Listen von Kommunikationsbeziehungen mit deren Schnittstellen
-
-## Fachlicher Kontext
-
-**Inhalt**
-
-Festlegung **aller** Kommunikationsbeziehungen (Nutzer, IT-Systeme, ...)
-mit Erklärung der fachlichen Ein- und Ausgabedaten oder Schnittstellen.
-Zusätzlich (bei Bedarf) fachliche Datenformate oder Protokolle der
-Kommunikation mit den Nachbarsystemen.
+If necessary, differentiate the business context (domain specific inputs
+and outputs) from the technical context (channels, protocols, hardware).
 
 **Motivation**
 
-Alle Beteiligten müssen verstehen, welche fachlichen Informationen mit
-der Umwelt ausgetauscht werden.
+The domain interfaces and technical interfaces to communication partners
+are among your system's most critical aspects. Make sure that you
+completely understand them.
 
 **Form**
 
-Alle Diagrammarten, die das System als Blackbox darstellen und die
-fachlichen Schnittstellen zu den Nachbarsystemen beschreiben.
+Various options:
 
-Alternativ oder ergänzend können Sie eine Tabelle verwenden. Der Titel
-gibt den Namen Ihres Systems wieder; die drei Spalten sind:
-Kommunikationsbeziehung, Eingabe, Ausgabe.
+- Context diagrams
+- Lists of communication partners and their interfaces.
 
-**\<Diagramm und/oder Tabelle\>**
+## Business Context
 
-**\<optional: Erläuterung der externen fachlichen Schnittstellen\>**
+**Contents**
 
-## Technischer Kontext
-
-**Inhalt**
-
-Technische Schnittstellen (Kanäle, Übertragungsmedien) zwischen dem
-System und seiner Umwelt. Zusätzlich eine Erklärung (*mapping*), welche
-fachlichen Ein- und Ausgaben über welche technischen Kanäle fließen.
+Specification of **all** communication partners (users, IT-systems, ...)
+with explanations of domain specific inputs and outputs or interfaces.
+Optionally you can add domain specific formats or communication
+protocols.
 
 **Motivation**
 
-Viele Stakeholder treffen Architekturentscheidungen auf Basis der
-technischen Schnittstellen des Systems zu seinem Kontext.
-
-Insbesondere bei der Entwicklung von Infrastruktur oder Hardware sind
-diese technischen Schnittstellen durchaus entscheidend.
+All stakeholders should understand which data are exchanged with the
+environment of the system.
 
 **Form**
 
-Beispielsweise UML Deployment-Diagramme mit den Kanälen zu
-Nachbarsystemen, begleitet von einer Tabelle, die Kanäle auf
-Ein-/Ausgaben abbildet.
+All kinds of diagrams that show the system as a black box and specify
+the domain interfaces to communication partners.
 
-**\<Diagramm oder Tabelle\>**
+Alternatively (or additionally) you can use a table. The title of the
+table is the name of your system, the three columns contain the name of
+the communication partner, the inputs, and the outputs.
 
-**\<optional: Erläuterung der externen technischen Schnittstellen\>**
+**\<Diagram or Table\>**
 
-**\<Mapping fachliche auf technische Schnittstellen\>**
+**\<optionally: Explanation of external domain interfaces\>**
+
+## Technical Context
+
+**Contents**
+
+Technical interfaces (channels and transmission media) linking your
+system to its environment. In addition a mapping of domain specific
+input/output to the channels, i.e. an explanation with I/O uses which
+channel.
+
+**Motivation**
+
+Many stakeholders make architectural decision based on the technical
+interfaces between the system and its context. Especially infrastructure
+or hardware designers decide these technical interfaces.
+
+**Form**
+
+E.g. UML deployment diagram describing channels to neighboring systems,
+together with a mapping table showing the relationships between channels
+and input/output.
+
+**\<Diagram or Table\>**
+
+**\<optionally: Explanation of technical interfaces\>**
+
+**\<Mapping Input/Output to Channels\>**

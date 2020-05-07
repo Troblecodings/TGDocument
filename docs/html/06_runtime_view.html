@@ -1,32 +1,29 @@
-<h1 id="laufzeitsicht">Laufzeitsicht</h1>
-<p><strong>Inhalt</strong></p>
-<p>Diese Sicht erklärt konkrete Abläufe und Beziehungen zwischen Bausteinen in Form von Szenarien aus den folgenden Bereichen:</p>
+<h1 id="runtime-view">Runtime View</h1>
+<p><strong>Contents</strong></p>
+<p>The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:</p>
 <ul>
-<li>Wichtige Abläufe oder <em>Features</em>: Wie führen die Bausteine der Architektur die wichtigsten Abläufe durch?</li>
-<li>Interaktionen an kritischen externen Schnittstellen: Wie arbeiten Bausteine mit Nutzern und Nachbarsystemen zusammen?</li>
-<li>Betrieb und Administration: Inbetriebnahme, Start, Stop.</li>
-<li>Fehler- und Ausnahmeszenarien</li>
+<li>important use cases or features: how do building blocks execute them?</li>
+<li>interactions at critical external interfaces: how do building blocks cooperate with users and neighboring systems?</li>
+<li>operation and administration: launch, start-up, stop</li>
+<li>error and exception scenarios</li>
 </ul>
-<p>Anmerkung: Das Kriterium für die Auswahl der möglichen Szenarien (d.h. Abläufe) des Systems ist deren Architekturrelevanz. Es geht nicht darum, möglichst viele Abläufe darzustellen, sondern eine angemessene Auswahl zu dokumentieren.</p>
+<p>Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their <strong>architectural relevance</strong>. It is <strong>not</strong> important to describe a large number of scenarios. You should rather document a representative selection.</p>
 <p><strong>Motivation</strong></p>
-<p>Sie sollten verstehen, wie (Instanzen von) Bausteine(n) Ihres Systems ihre jeweiligen Aufgaben erfüllen und zur Laufzeit miteinander kommunizieren.</p>
-<p>Nutzen Sie diese Szenarien in der Dokumentation hauptsächlich für eine verständlichere Kommunikation mit denjenigen Stakeholdern, die die statischen Modelle (z.B. Bausteinsicht, Verteilungssicht) weniger verständlich finden.</p>
+<p>You should understand how (instances of) building blocks of your system perform their job and communicate at runtime. You will mainly capture scenarios in your documentation to communicate your architecture to stakeholders that are less willing or able to read and understand the static models (building block view, deployment view).</p>
 <p><strong>Form</strong></p>
-<p>Für die Beschreibung von Szenarien gibt es zahlreiche Ausdrucksmöglichkeiten. Nutzen Sie beispielsweise:</p>
+<p>There are many notations for describing scenarios, e.g.</p>
 <ul>
-<li>Nummerierte Schrittfolgen oder Aufzählungen in Umgangssprache</li>
-<li>Aktivitäts- oder Flussdiagramme</li>
-<li>Sequenzdiagramme</li>
-<li>BPMN (Geschäftsprozessmodell und -notation) oder EPKs (Ereignis-Prozessketten)</li>
-<li>Zustandsautomaten</li>
+<li>numbered list of steps (in natural language)</li>
+<li>activity diagrams or flow charts</li>
+<li>sequence diagrams</li>
+<li>BPMN or EPCs (event process chains)</li>
+<li>state machines</li>
 <li>…</li>
 </ul>
-<h2 id="bezeichnung-laufzeitszenario-1"><em>&lt;Bezeichnung Laufzeitszenario 1&gt;</em></h2>
+<h2 id="runtime-scenario-1">&lt;Runtime Scenario 1</h2>
 <ul>
-<li>&lt;hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen&gt;</li>
-<li>&lt;hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern&gt;</li>
+<li><em>&lt;insert runtime diagram or textual description of the scenario&gt;</em></li>
+<li><em>&lt;insert description of the notable aspects of the interactions between the building block instances depicted in this diagram.&gt;</em></li>
 </ul>
-<h2 id="bezeichnung-laufzeitszenario-2"><em>&lt;Bezeichnung Laufzeitszenario 2&gt;</em></h2>
-<p>…</p>
-<h2 id="bezeichnung-laufzeitszenario-n"><em>&lt;Bezeichnung Laufzeitszenario n&gt;</em></h2>
-<p>…</p>
+<h2 id="runtime-scenario-2">&lt;Runtime Scenario 2</h2>
+<h2 id="runtime-scenario-n">&lt;Runtime Scenario n</h2>

@@ -1,73 +1,66 @@
-# Querschnittliche Konzepte
+# Cross-cutting Concepts
 
-**Inhalt**
+**Content**
 
-Dieser Abschnitt beschreibt übergreifende, prinzipielle Regelungen und
-Lösungsansätze, die an mehreren Stellen (=*querschittlich*) relevant
-sind.
+This section describes overall, principal regulations and solution ideas
+that are relevant in multiple parts (= cross-cutting) of your system.
+Such concepts are often related to multiple building blocks. They can
+include many different topics, such as
 
-Solche Konzepte betreffen oft mehrere Bausteine. Dazu können vielerlei
-Themen gehören, beispielsweise:
-
-- fachliche Modelle,
-- eingesetzte Architektur- oder Entwurfsmuster,
-- Regeln für den konkreten Einsatz von Technologien,
-- prinzipielle --- meist technische --- Festlegungen übergreifender
-    Art,
-- Implementierungsregeln
+- domain models
+- architecture patterns or design patterns
+- rules for using specific technology
+- principal, often technical decisions of overall decisions
+- implementation rules
 
 **Motivation**
 
-Konzepte bilden die Grundlage für *konzeptionelle Integrität*
-(Konsistenz, Homogenität) der Architektur und damit eine wesentliche
-Grundlage für die innere Qualität Ihrer Systeme.
+Concepts form the basis for *conceptual integrity* (consistency,
+homogeneity) of the architecture. Thus, they are an important
+contribution to achieve inner qualities of your system.
 
-Manche dieser Themen lassen sich nur schwer als Baustein in der
-Architektur unterbringen (z.B. das Thema „Sicherheit"). Hier ist der
-Platz im Template, wo Sie derartige Themen geschlossen behandeln können.
+Some of these concepts cannot be assigned to individual building blocks
+(e.g. security or safety). This is the place in the template that we
+provided for a cohesive specification of such concepts.
 
 **Form**
 
-Kann vielfältig sein:
+The form can be varied:
 
-- Konzeptpapiere mit beliebiger Gliederung,
+- concept papers with any kind of structure
+- cross-cutting model excerpts or scenarios using notations of the
+    architecture views
+- sample implementations, especially for technical concepts
+- reference to typical usage of standard frameworks (e.g. using
+    Hibernate for object/relational mapping)
 
-- übergreifende Modelle/Szenarien mit Notationen, die Sie auch in den
-    Architektursichten nutzen,
+**Structure**
 
-- beispielhafte Implementierung speziell für technische Konzepte,
+A potential (but not mandatory) structure for this section could be:
 
-- Verweise auf „übliche" Nutzung von Standard-Frameworks
-    (beispielsweise die Nutzung von Hibernate als Object/Relational
-    Mapper).
+- Domain concepts
+- User Experience concepts (UX)
+- Safety and security concepts
+- Architecture and design patterns
+- \"Under-the-hood\"
+- development concepts
+- operational concepts
 
-**Struktur**
+Note: it might be difficult to assign individual concepts to one
+specific topic on this list.
 
-Eine mögliche (nicht aber notwendige!) Untergliederung dieses
-Abschnittes könnte wie folgt aussehen (wobei die Zuordnung von Themen zu
-den Gruppen nicht immer eindeutig ist):
+![Possible topics for crosscutting concepts](images/08-Crosscutting-Concepts-Structure-EN.png)
 
-- Fachliche Konzepte
-- User Experience (UX)
-- Sicherheitskonzepte (Safety und Security)
-- Architektur- und Entwurfsmuster
-- Unter-der-Haube
-- Entwicklungskonzepte
-- Betriebskonzepte
+## *\<Concept 1
 
-![Possible topics for crosscutting
-concepts](../images/08-Crosscutting-Concepts-Structure-DE.png)
+*\<explanation\>*
 
-## *\<Konzept 1\>*
+## *\<Concept 2
 
-*\<Erklärung\>*
-
-## *\<Konzept 2\>*
-
-*\<Erklärung\>*
+*\<explanation\>*
 
 ...
 
-## *\<Konzept n\>*
+## *\<Concept n
 
-*\<Erklärung\>*
+*\<explanation\>*
