@@ -1,6 +1,8 @@
 # Architecture Constraints
 
 Generally the whole architecture of all our projects are constraint to cache friendly and low overhead operations.
+
+## Disallowed
 Therefore following things are not allowed.
 
 | Disallowed                 | Description                                                                           | Example                                                |
@@ -11,6 +13,8 @@ Therefore following things are not allowed.
 | Object-Orientation         | The basic nature of object orientation does miss the point of data transformation (5) | ```texture.getWidth(); // No optimization guarantee``` |
 | DLLs                       | They remove the the optimizers ability to optimize, which is really bad  (2)          |                                                        |
 | runtime polymorphism       | This will hit cold memory and miss the branch prediction                              | ```virtual toString();```                              |
+
+## Reduced allowed
 
 We try to reduce the usage of certain things in performance critical systems
 
@@ -23,7 +27,9 @@ We try to reduce the usage of certain things in performance critical systems
 | High level abstraction          | Every abstraction comes with a cost, the lower the level the better (4)                                                                                                               | Code generation, Classes, Templates                               |
 | Smart pointer                   | Those have hidden costs and threading issues (4)                                                                                                                                      | ```std::unique_ptr<int>```                                        |
 
-Instead of the above it is strongly recommended to use the following patterns and technics.
+## Encouraged
+
+In contrast to the lists above it is strongly recommended to use the following patterns and technics.
 
 | Encouraged               | Description                                                                            | Example                            |
 | ------------------------ | -------------------------------------------------------------------------------------- | ---------------------------------- |
@@ -43,11 +49,13 @@ Instead of the above it is strongly recommended to use the following patterns an
 | const                    | Gives the compile a better base to optimize                                            | ```void test(const char* name);``` |
 | GPU Memory               | Everything should be copied to GPU memory as soon as possible                          |                                    |
 
+## Additional
+
 The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems is based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit [The Vulkan Specification](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf)
 
 We also have a set of style guidelines for contributions to our repositories. To see them visit [troblecodings.com](https://troblecodings.com/contribution.html)
 
-**Sources**
+## Sources
 
 (1) [CppCon 2018: Matt Godbolt “The Bits Between the Bits: How We Get to main"](https://www.youtube.com/watch?v=dOfucXtyEsU)
 
