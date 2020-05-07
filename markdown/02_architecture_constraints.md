@@ -2,13 +2,15 @@
 
 Generally the whole architecture of all our projects are constraint to cache friendly and low overhead operations.
 Therefore following things are not allowed.
+
 | Disallowed                 | Description                                                                           | Example                                                |
 | -------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Exceptions                 | We don't want our game to crash midway. This adds a lot of unnecessary overhead (4)   |                                                        |
-| Cache unfriendly Container | A big risk to miss the L1 cache               (3)                                 | ```std::map, std::list, ...```                         |
-| Per object function        | On a large scale those functions pile up a lot of overhead     (4)                    | ```texture.create();```                                |
-| Object-Orientation         | The basic nature of object orientation does miss the point of data transformation (4) | ```texture.getWidth(); // No optimization guarantee``` |
+| Exceptions                 | We don't want our game to crash midway. This adds a lot of unnecessary overhead (5)   |                                                        |
+| Cache unfriendly Container | A big risk to miss the L1 cache               (3)                                     | ```std::map, std::list, ...```                         |
+| Per object function        | On a large scale those functions pile up a lot of overhead     (5)                    | ```texture.create();```                                |
+| Object-Orientation         | The basic nature of object orientation does miss the point of data transformation (5) | ```texture.getWidth(); // No optimization guarantee``` |
 | DLLs                       | They remove the the optimizers ability to optimize, which is really bad  (2)          |                                                        |
+| runtime polymorphism       | This will hit cold memory and miss the branch prediction                              | ```virtual toString();```                              |
 
 We try to reduce the usage of certain things in performance critical systems
 
@@ -19,6 +21,29 @@ We try to reduce the usage of certain things in performance critical systems
 | Global variables                | This adds startup overhead, so better not have to much (1)                                                                                                                            | ```extern int x  = 0;```                                          |
 | Copy and Swap                   | Try to avoid unnecessary copies and swaps                                                                                                                                             | ```std::string name = "Test"; std::string name2 = name; //Copy``` |
 | High level abstraction          | Every abstraction comes with a cost, the lower the level the better (4)                                                                                                               | Code generation, Classes, Templates                               |
+| Smart pointer                   | Those have hidden costs and threading issues (4)                                                                                                                                      | ```std::unique_ptr<int>```                                        |
+
+Instead of the above it is strongly recommended to use the following patterns and technics.
+
+| Encouraged               | Description                                                                            | Example                            |
+| ------------------------ | -------------------------------------------------------------------------------------- | ---------------------------------- |
+| cache friendly Container | Container that barely miss L1 cache                                                    | ```std::vector, std::array```      |
+| `new` allocations        | This allocates memory dynamically (malloc)                                             | ```char* chars = new char[x]```    |
+| low level abstractions   | This reduces abstraction cost                                                          | such as functions                  |
+| structs                  | No need to worry about visibility                                                      | ```struct T { int x; }```          |
+| namespaces               | Every code should be within a namespace to reduce ambiguity                            | ```namespace tge::test {}```       |
+| Macros                   | Macros can shift some performance cost to the compile time                             | ```#define CHECK(x) if(x) {}```    |
+| std::atomic, VkFence ... | for thread safety                                                                      | ```std::atomic<bool>```            |
+| fixed memory allocation  | reduces the cost of dynamic allocation                                                 | ```char test[25]```                |
+| `inline`                 | Encourages the compile to inline the function to reduce calling overhead               | ```inline void test() {}```        |
+| `noexcept`               | To be extra sure there are no exceptions                                               | ```void test() noexcept {}```      |
+| Error return codes       | If there should be the need for error handling                                         | ```if(vkCreateDevice(...))```      |
+| Small size optimization  | use pointers in dynamic lists and allocate the contents differently if they are bigger | ```std::vector<Test*>```           |
+| constexpr, consteval     | this moves cost from the runtime to the compile time                                   | ```constexpr uint32_t test = 32``` |
+| const                    | Gives the compile a better base to optimize                                            | ```void test(const char* name);``` |
+| GPU Memory               | Everything should be copied to GPU memory as soon as possible                          |                                    |
+
+
 
 (1) [CppCon 2018: Matt Godbolt “The Bits Between the Bits: How We Get to main"](https://www.youtube.com/watch?v=dOfucXtyEsU)
 
