@@ -187,10 +187,15 @@
 <td>Everything should be copied to GPU memory as soon as possible</td>
 <td></td>
 </tr>
+<tr class="even">
+<td>vector::reserve</td>
+<td>Use reserve or resize before using a vector to reduce the relocations</td>
+<td><code>vec.reserve(200);</code></td>
+</tr>
 </tbody>
 </table>
 <h2 id="additional">Additional</h2>
-<p>The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems is based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit <a href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf">The Vulkan Specification</a></p>
+<p>The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems are based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit <a href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf">The Vulkan Specification</a></p>
 <p>We also have a set of style guidelines for contributions to our repositories. To see them visit <a href="https://troblecodings.com/contribution.html">troblecodings.com</a></p>
 <h2 id="sources">Sources</h2>
 <ol type="1">
