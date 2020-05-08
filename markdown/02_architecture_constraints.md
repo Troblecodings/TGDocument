@@ -3,6 +3,7 @@
 Generally the whole architecture of all our projects are constraint to cache friendly and low overhead operations.
 
 ## Disallowed
+
 Therefore following things are not allowed.
 
 | Disallowed                 | Description                                                                           | Example                                                |
@@ -20,7 +21,7 @@ We try to reduce the usage of certain things in performance critical systems
 
 | Reduced allowed                 | Description                                                                                                                                                                           | Example                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Template libraries              | While template libraries offer a great amount of flexibility and freedom they also come at the cost of overhead as the typesystem has to figure out the input type at the runtime (4) | ```glm::translate       ```                                       |
+| Template libraries              | While template libraries offer a great amount of flexibility and freedom they also come at the cost of overhead as the typesystem has to figure out the input type at the runtime (4) | ```glm::translate```                                       |
 | Functions in structs or classes | This should only be used by entries on none critical paths as it possess a big risk of potential overhead (4)(5)                                                                      | ```struct _Test { const char* getTestName(); };```                |
 | Global variables                | This adds startup overhead, so better not have to much (1)                                                                                                                            | ```extern int x  = 0;```                                          |
 | Copy and Swap                   | Try to avoid unnecessary copies and swaps                                                                                                                                             | ```std::string name = "Test"; std::string name2 = name; //Copy``` |
@@ -48,10 +49,11 @@ In contrast to the lists above it is strongly recommended to use the following p
 | constexpr, consteval     | this moves cost from the runtime to the compile time                                   | ```constexpr uint32_t test = 32``` |
 | const                    | Gives the compile a better base to optimize                                            | ```void test(const char* name);``` |
 | GPU Memory               | Everything should be copied to GPU memory as soon as possible                          |                                    |
+| vector::reserve          | Use reserve or resize before using a vector to reduce the relocations                  | ```vec.reserve(200);```            |
 
 ## Additional
 
-The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems is based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit [The Vulkan Specification](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf)
+The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems are based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit [The Vulkan Specification](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf)
 
 We also have a set of style guidelines for contributions to our repositories. To see them visit [troblecodings.com](https://troblecodings.com/contribution.html)
 
