@@ -1,57 +1,33 @@
 <h1 id="introduction-and-goals">Introduction and Goals</h1>
-<p>Describes the relevant requirements and the driving forces that software architects and development team must consider. These include</p>
-<ul>
-<li>underlying business goals, essential features and functional requirements for the system</li>
-<li>quality goals for the architecture</li>
-<li>relevant stakeholders and their expectations</li>
-</ul>
 <h2 id="requirements-overview">Requirements Overview</h2>
-<p><strong>Contents</strong></p>
-<p>Short description of the functional requirements, driving forces, extract (or abstract) of requirements. Link to (hopefully existing) requirements documents (with version number and information where to find it).</p>
-<p><strong>Motivation</strong></p>
-<p>From the point of view of the end users a system is created or modified to improve support of a business activity and/or improve the quality.</p>
-<p><strong>Form</strong></p>
-<p>Short textual description, probably in tabular use-case format. If requirements documents exist this overview should refer to these documents.</p>
-<p>Keep these excerpts as short as possible. Balance readability of this document with potential redundancy w.r.t to requirements documents.</p>
+<p>The goal is to create a small game, representing the functionality of the engine. It should run reasonably well. Any kind of underlying game design, such as level design, UX and such are not to be considered at the current stage, as our only focus is the underlying engine.</p>
 <h2 id="quality-goals">Quality Goals</h2>
-<p><strong>Contents</strong></p>
-<p>The top three (max five) quality goals for the architecture whose fulfillment is of highest importance to the major stakeholders. We really mean quality goals for the architecture. Don’t confuse them with project goals. They are not necessarily identical.</p>
-<p><strong>Motivation</strong></p>
-<p>You should know the quality goals of your most important stakeholders, since they will influence fundamental architectural decisions. Make sure to be very concrete about these qualities, avoid buzzwords. If you as an architect do not know how the quality of your work will be judged …</p>
-<p><strong>Form</strong></p>
-<p>A table with quality goals and concrete scenarios, ordered by priorities</p>
-<h2 id="stakeholders">Stakeholders</h2>
-<p><strong>Contents</strong></p>
-<p>Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that</p>
+<ol type="1">
+<li>Clean codebase with documentation
 <ul>
-<li>should know the architecture</li>
-<li>have to be convinced of the architecture</li>
-<li>have to work with the architecture or with code</li>
-<li>need the documentation of the architecture for their work</li>
-<li>have to come up with decisions about the system or its development</li>
+<li>Example: Easy to understand code, with documentation viewable on a website</li>
+</ul></li>
+<li>Good performance of engine
+<ul>
+<li>Example: High framerate, responsive UI</li>
+</ul></li>
+<li>Goal
+<ul>
+<li>Example</li>
+</ul></li>
+</ol>
+<h2 id="stakeholders">Stakeholders</h2>
+<ul>
+<li>MrTroble &lt;Email&gt;
+<ul>
+<li>Makes the most decisions regarding the underlying architecture and needs to be able to implement features to all parts of the architecture</li>
+</ul></li>
+<li>IceDynamix &lt;Email&gt;
+<ul>
+<li>Implement all automated tasks regarding the project, implement features for the ShaderTool, and implement parts of the editor</li>
+</ul></li>
+<li>Clazilla &lt;Email&gt;
+<ul>
+<li>Design the resources for the game and provide features for the ShaderTool</li>
+</ul></li>
 </ul>
-<p><strong>Motivation</strong></p>
-<p>You should know all parties involved in development of the system or affected by the system. Otherwise, you may get nasty surprises later in the development process. These stakeholders determine the extent and the level of detail of your work and its results.</p>
-<p><strong>Form</strong></p>
-<p>Table with role names, person names, and their expectations with respect to the architecture and its documentation.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Role/Name</th>
-<th>Contact</th>
-<th>Expectations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><em>&lt;Role-1&gt;</em></td>
-<td><em>&lt;Contact-1&gt;</em></td>
-<td><em>&lt;Expectation-1&gt;</em></td>
-</tr>
-<tr class="even">
-<td><em>&lt;Role-2&gt;</em></td>
-<td><em>&lt;Contact-2&gt;</em></td>
-<td><em>&lt;Expectation-2&gt;</em></td>
-</tr>
-</tbody>
-</table>
