@@ -39,7 +39,7 @@ In contrast to the lists above, it is strongly recommended to use the following 
 | `new` allocations            | Dynamic memory allocation (malloc)                                                        | `char* chars = new char[x]`    |
 | low level abstractions       | This reduces abstraction cost                                                             | such as functions              |
 | Structs                      | No need to worry about visibility                                                         | `struct T { int x; }`          |
-| Samespaces                   | Every code should be within a namespace to reduce ambiguity                               | `namespace tge::test {}`       |
+| Namespaces                   | Every code should be within a namespace to reduce ambiguity                               | `namespace tge::test {}`       |
 | Macros                       | Macros can shift some performance cost to compile time                                    | `#define CHECK(x) if(x) {}`    |
 | `std::atomic`, `VkFence` ... | For thread safety                                                                         | `std::atomic<bool>`            |
 | Fixed memory allocation      | Reduces the cost of dynamic allocation                                                    | `char test[25]`                |
