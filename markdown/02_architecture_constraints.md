@@ -14,7 +14,7 @@ Therefore, following things are not allowed.
 | Per object function        | On a large scale those functions pile up a lot of overhead (5)                      | `texture.create();`                                |
 | Object-Orientation         | The basic nature of object orientation misses the point of data transformation (5)  | `texture.getWidth(); // No optimization guarantee` |
 | DLLs                       | They remove the the optimizers ability to optimize, which is really bad (2)         |                                                    |
-| runtime polymorphism       | This hits cold memory and miss the branch prediction                                | `virtual toString();`                              |
+| runtime polymorphism       | This hits cold memory and misses the branch prediction                                | `virtual toString();`                              |
 
 ## Reduced allowed
 
@@ -26,12 +26,12 @@ We try to reduce the usage of following things in performance critical systems.
 | Functions in structs or classes | This should only be used by entries on non-critical paths, as it possesses a big risk of potential overhead (4)(5)                                                                  | `struct _Test { const char* getTestName(); };`                |
 | Global variables                | This adds startup overhead, so better not have too much (1)                                                                                                                         | `extern int x  = 0;`                                          |
 | Copy and Swap                   | Try to avoid unnecessary copies and swaps                                                                                                                                           | `std::string name = "Test"; std::string name2 = name; //Copy` |
-| High level abstraction          | Every abstraction comes with a cost, the lower the level the better (4)                                                                                                             | Code generation, Classes, Templates                           |
+| High level abstraction          | Every abstraction comes with a cost, the lower the level the better (4)                                                                                                             | Code Generation, Classes, Templates                           |
 | Smart pointer                   | They have hidden costs and threading issues (4)                                                                                                                                     | `std::unique_ptr<int>`                                        |
 
 ## Encouraged
 
-In contrast to the lists above, it is strongly recommended to use the following patterns and techniques.
+In contrast to the list above, it is strongly recommended to use the following patterns and techniques.
 
 | Encouraged                   | Description                                                                               | Example                        |
 | ---------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
