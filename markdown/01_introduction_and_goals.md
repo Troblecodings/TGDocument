@@ -9,18 +9,18 @@ the current stage, as our only focus is the underlying engine.
 
 ## Quality Goals
 
-1. Clean codebase with documentation
-    - Example: Easy to understand code, with documentation viewable on a website
-2. Good performance of engine
+1. Good performance of engine
     - Example: High framerate, responsive UI
-3. Goal
-    - Example
+2. Clean codebase with documentation
+    - Example: Easy to understand code, with documentation viewable on a website
+3. Stability of the engine
+    - Example: No crashes upon various actions with the engine window
 
 ## Stakeholders
 
-- MrTroble \<Email\>
+- MrTroble, Discord: MrTroble#5516
     - Makes the most decisions regarding the underlying architecture and needs to be able to implement features to all parts of the architecture
-- IceDynamix \<Email\>
+- IceDynamix, Discord: IceDynamix#7153
     - Implement all automated tasks regarding the project, implement features for the ShaderTool, and implement parts of the editor
-- Clazilla \<Email\>
+- Clazilla, Discord: Clara#5179
     - Design the resources for the game and provide features for the ShaderTool
