@@ -53,7 +53,7 @@ In contrast to the lists above it is strongly recommended to use the following p
 
 ## Additional
 
-The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems are based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit [The Vulkan Specification](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf)
+The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems are based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit [The Vulkan Specification](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf). The project is currently required to use MSVC 2019 or newer as compiler. In release mode O2 optimization is being used. The software requires any sort of graphics module as hardware, which supports the vulkan api. This can either be a onboard graphics chip or a full on card. This also should run on all x86 and x64 processors.  
 
 We also have a set of style guidelines for contributions to our repositories. To see them visit [troblecodings.com](https://troblecodings.com/contribution.html)
 
