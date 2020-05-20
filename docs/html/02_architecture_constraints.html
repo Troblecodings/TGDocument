@@ -1,7 +1,207 @@
 <h1 id="architecture-constraints">Architecture Constraints</h1>
-<p><strong>Contents</strong></p>
-<p>Any requirement that constrains software architects in their freedom of design and implementation decisions or decision about the development process. These constraints sometimes go beyond individual systems and are valid for whole organizations and companies.</p>
-<p><strong>Motivation</strong></p>
-<p>Architects should know exactly where they are free in their design decisions and where they must adhere to constraints. Constraints must always be dealt with; they may be negotiable, though.</p>
-<p><strong>Form</strong></p>
-<p>Simple tables of constraints with explanations. If needed you can subdivide them into technical constraints, organizational and political constraints and conventions (e.g. programming or versioning guidelines, documentation or naming conventions)</p>
+<p>The whole architecture of all our projects is generally constrained to cache friendly and low overhead operations.</p>
+<h2 id="disallowed">Disallowed</h2>
+<p>Therefore, following things are not allowed.</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 52%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Disallowed</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exceptions</td>
+<td>We don’t want our game to crash midway. This adds a lot of unnecessary overhead (5)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Cache unfriendly Container</td>
+<td>A big risk to miss the L1 cache, which is the fastest cache (3)</td>
+<td><code>std::map, std::list, ...</code></td>
+</tr>
+<tr class="odd">
+<td>Per object function</td>
+<td>On a large scale those functions pile up a lot of overhead (5)</td>
+<td><code>texture.create();</code></td>
+</tr>
+<tr class="even">
+<td>Object-Orientation</td>
+<td>The basic nature of object orientation misses the point of data transformation (5)</td>
+<td><code>texture.getWidth(); // No optimization guarantee</code></td>
+</tr>
+<tr class="odd">
+<td>DLLs</td>
+<td>They remove the the optimizers ability to optimize, which is really bad (2)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>runtime polymorphism</td>
+<td>This hits cold memory and misses the branch prediction</td>
+<td><code>virtual toString();</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="reduced-allowed">Reduced allowed</h2>
+<p>We try to reduce the usage of following things in performance critical systems.</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 66%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Reduced allowed</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Template libraries</td>
+<td>While template libraries offer a great amount of flexibility and freedom, they also come at the cost of overhead, as the typesystem has to figure out the input type at runtime (4)</td>
+<td><code>glm::translate</code></td>
+</tr>
+<tr class="even">
+<td>Functions in structs or classes</td>
+<td>This should only be used by entries on non-critical paths, as it possesses a big risk of potential overhead (4)(5)</td>
+<td><code>struct _Test { const char* getTestName(); };</code></td>
+</tr>
+<tr class="odd">
+<td>Global variables</td>
+<td>This adds startup overhead, so better not have too much (1)</td>
+<td><code>extern int x  = 0;</code></td>
+</tr>
+<tr class="even">
+<td>Copy and Swap</td>
+<td>Try to avoid unnecessary copies and swaps</td>
+<td><code>std::string name = "Test"; std::string name2 = name; //Copy</code></td>
+</tr>
+<tr class="odd">
+<td>High level abstraction</td>
+<td>Every abstraction comes with a cost, the lower the level the better (4)</td>
+<td>Code Generation, Classes, Templates</td>
+</tr>
+<tr class="even">
+<td>Smart pointer</td>
+<td>They have hidden costs and threading issues (4)</td>
+<td><code>std::unique_ptr&lt;int&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="encouraged">Encouraged</h2>
+<p>In contrast to the list above, it is strongly recommended to use the following patterns and techniques.</p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Encouraged</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cache friendly containers</td>
+<td>Containers that barely miss L1 cache</td>
+<td><code>std::vector, std::array</code></td>
+</tr>
+<tr class="even">
+<td><code>new</code> allocations</td>
+<td>Dynamic memory allocation (malloc)</td>
+<td><code>char* chars = new char[x]</code></td>
+</tr>
+<tr class="odd">
+<td>low level abstractions</td>
+<td>This reduces abstraction cost</td>
+<td>such as functions</td>
+</tr>
+<tr class="even">
+<td>Structs</td>
+<td>No need to worry about visibility</td>
+<td><code>struct T { int x; }</code></td>
+</tr>
+<tr class="odd">
+<td>Namespaces</td>
+<td>Every code should be within a namespace to reduce ambiguity</td>
+<td><code>namespace tge::test {}</code></td>
+</tr>
+<tr class="even">
+<td>Macros</td>
+<td>Macros can shift some performance cost to compile time</td>
+<td><code>#define CHECK(x) if(x) {}</code></td>
+</tr>
+<tr class="odd">
+<td><code>std::atomic</code>, <code>VkFence</code> …</td>
+<td>For thread safety</td>
+<td><code>std::atomic&lt;bool&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Fixed memory allocation</td>
+<td>Reduces the cost of dynamic allocation</td>
+<td><code>char test[25]</code></td>
+</tr>
+<tr class="odd">
+<td><code>inline</code></td>
+<td>Encourages the compiler to inline the function, to reduce calling overhead</td>
+<td><code>inline void test() {}</code></td>
+</tr>
+<tr class="even">
+<td><code>noexcept</code></td>
+<td>To be extra sure there are no exceptions</td>
+<td><code>void test() noexcept {}</code></td>
+</tr>
+<tr class="odd">
+<td>Error return codes</td>
+<td>If there’s the need for error handling</td>
+<td><code>if(vkCreateDevice(...))</code></td>
+</tr>
+<tr class="even">
+<td>Small size optimization</td>
+<td>Use pointers in dynamic lists and allocate the contents differently, when they are bigger</td>
+<td><code>std::vector&lt;Test*&gt;</code></td>
+</tr>
+<tr class="odd">
+<td><code>constexpr</code>, <code>consteval</code></td>
+<td>This moves cost from the runtime to the compile time</td>
+<td><code>constexpr uint32_t test = 32</code></td>
+</tr>
+<tr class="even">
+<td><code>const</code></td>
+<td>Gives the compiler a better base to optimize</td>
+<td><code>void test(const char* name);</code></td>
+</tr>
+<tr class="odd">
+<td>GPU Memory</td>
+<td>Everything should be copied to GPU memory as soon as possible</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>vector::reserve</code></td>
+<td>Use <code>reserve</code> or <code>resize</code>, before using a vector to reduce the relocations</td>
+<td><code>vec.reserve(200);</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional">Additional</h2>
+<p>The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems are based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. Refer to <a href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf">The Vulkan Specification</a> for more information.</p>
+<p>We also have a set of style guidelines for contributions to our repositories. Refer to <a href="https://troblecodings.com/contribution.html">troblecodings.com</a></p>
+<h2 id="sources">Sources</h2>
+<ol type="1">
+<li><p><a href="https://www.youtube.com/watch?v=dOfucXtyEsU">CppCon 2018: Matt Godbolt “The Bits Between the Bits: How We Get to main”</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=JPQWQfDhICA">CppCon 2017: James McNellis “Everything You Ever Wanted to Know about DLLs”</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=fHNmRkzxHWs">CppCon 2014: Chandler Carruth “Efficiency with Algorithms, Performance with Data Structures”</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=rHIkrotSwcc">CppCon 2019: Chandler Carruth “There Are No Zero-cost Abstractions”</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=rX0ItVEVjHc">CppCon 2014: Mike Acton “Data-Oriented Design and C++”</a></p></li>
+</ol>
