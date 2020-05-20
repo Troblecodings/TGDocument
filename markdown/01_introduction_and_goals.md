@@ -1,82 +1,26 @@
 # Introduction and Goals
 
-Describes the relevant requirements and the driving forces that software
-architects and development team must consider. These include
-
-- underlying business goals, essential features and functional
-  requirements for the system
-- quality goals for the architecture
-- relevant stakeholders and their expectations
-
 ## Requirements Overview
 
-**Contents**
-
-Short description of the functional requirements, driving forces,
-extract (or abstract) of requirements. Link to (hopefully existing)
-requirements documents (with version number and information where to
-find it).
-
-**Motivation**
-
-From the point of view of the end users a system is created or modified
-to improve support of a business activity and/or improve the quality.
-
-**Form**
-
-Short textual description, probably in tabular use-case format. If
-requirements documents exist this overview should refer to these
-documents.
-
-Keep these excerpts as short as possible. Balance readability of this
-document with potential redundancy w.r.t to requirements documents.
+The goal is to create a small game, representing the functionality of
+the engine. It should run reasonably well. Any kind of underlying game
+design, such as level design, UX and such are not to be considered at
+the current stage, as our only focus is the underlying engine.
 
 ## Quality Goals
 
-**Contents**
-
-The top three (max five) quality goals for the architecture whose
-fulfillment is of highest importance to the major stakeholders. We
-really mean quality goals for the architecture. Don't confuse them with
-project goals. They are not necessarily identical.
-
-**Motivation**
-
-You should know the quality goals of your most important stakeholders,
-since they will influence fundamental architectural decisions. Make sure
-to be very concrete about these qualities, avoid buzzwords. If you as an
-architect do not know how the quality of your work will be judged ...
-
-**Form**
-
-A table with quality goals and concrete scenarios, ordered by priorities
+1. Good performance of engine
+    - Example: High framerate, responsive UI
+2. Clean codebase with documentation
+    - Example: Easy to understand code, with documentation viewable on a website
+3. Stability of the engine
+    - Example: No crashes upon various actions with the engine window
 
 ## Stakeholders
 
-**Contents**
-
-Explicit overview of stakeholders of the system, i.e. all person, roles
-or organizations that
-
-- should know the architecture
-- have to be convinced of the architecture
-- have to work with the architecture or with code
-- need the documentation of the architecture for their work
-- have to come up with decisions about the system or its development
-
-**Motivation**
-
-You should know all parties involved in development of the system or
-affected by the system. Otherwise, you may get nasty surprises later in
-the development process. These stakeholders determine the extent and the
-level of detail of your work and its results.
-
-**Form**
-
-Table with role names, person names, and their expectations with respect
-to the architecture and its documentation.
-
-| Role/Name    | Contact         | Expectations        |
-| ------------ | --------------- | ------------------- |
-| *\<Role-1\>* | *\<Contact-1\>* | *\<Expectation-1\>* |
-| *\<Role-2\>* | *\<Contact-2\>* | *\<Expectation-2\>* |
+- MrTroble, Discord: MrTroble#5516
+    - Makes the most decisions regarding the underlying architecture and needs to be able to implement features to all parts of the architecture
+- IceDynamix, Discord: IceDynamix#7153
+    - Implement all automated tasks regarding the project, implement features for the ShaderTool, and implement parts of the editor
+- Clazilla, Discord: Clara#5179
+    - Design the resources for the game and provide features for the ShaderTool
