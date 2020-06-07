@@ -1,12 +1,12 @@
 <h1 id="architecture-constraints">Architecture Constraints</h1>
-<p>Generally the whole architecture of all our projects are constraint to cache friendly and low overhead operations.</p>
+<p>The whole architecture of all our projects is generally constrained to cache friendly and low overhead operations.</p>
 <h2 id="disallowed">Disallowed</h2>
-<p>Therefore following things are not allowed.</p>
+<p>Therefore, following things are not allowed.</p>
 <table>
 <colgroup>
-<col style="width: 15%" />
-<col style="width: 51%" />
-<col style="width: 32%" />
+<col style="width: 16%" />
+<col style="width: 52%" />
+<col style="width: 31%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -23,7 +23,7 @@
 </tr>
 <tr class="even">
 <td>Cache unfriendly Container</td>
-<td>A big risk to miss the L1 cache (3)</td>
+<td>A big risk to miss the L1 cache, which is the fastest cache (3)</td>
 <td><code>std::map, std::list, ...</code></td>
 </tr>
 <tr class="odd">
@@ -33,7 +33,7 @@
 </tr>
 <tr class="even">
 <td>Object-Orientation</td>
-<td>The basic nature of object orientation does miss the point of data transformation (5)</td>
+<td>The basic nature of object orientation misses the point of data transformation (5)</td>
 <td><code>texture.getWidth(); // No optimization guarantee</code></td>
 </tr>
 <tr class="odd">
@@ -43,18 +43,18 @@
 </tr>
 <tr class="even">
 <td>runtime polymorphism</td>
-<td>This will hit cold memory and miss the branch prediction</td>
+<td>This hits cold memory and misses the branch prediction</td>
 <td><code>virtual toString();</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="reduced-allowed">Reduced allowed</h2>
-<p>We try to reduce the usage of certain things in performance critical systems</p>
+<p>We try to reduce the usage of following things in performance critical systems.</p>
 <table>
 <colgroup>
 <col style="width: 11%" />
-<col style="width: 65%" />
-<col style="width: 23%" />
+<col style="width: 66%" />
+<col style="width: 22%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -66,17 +66,17 @@
 <tbody>
 <tr class="odd">
 <td>Template libraries</td>
-<td>While template libraries offer a great amount of flexibility and freedom they also come at the cost of overhead as the typesystem has to figure out the input type at the runtime (4)</td>
+<td>While template libraries offer a great amount of flexibility and freedom, they also come at the cost of overhead, as the typesystem has to figure out the input type at runtime (4)</td>
 <td><code>glm::translate</code></td>
 </tr>
 <tr class="even">
 <td>Functions in structs or classes</td>
-<td>This should only be used by entries on none critical paths as it possess a big risk of potential overhead (4)(5)</td>
+<td>This should only be used by entries on non-critical paths, as it possesses a big risk of potential overhead (4)(5)</td>
 <td><code>struct _Test { const char* getTestName(); };</code></td>
 </tr>
 <tr class="odd">
 <td>Global variables</td>
-<td>This adds startup overhead, so better not have to much (1)</td>
+<td>This adds startup overhead, so better not have too much (1)</td>
 <td><code>extern int x  = 0;</code></td>
 </tr>
 <tr class="even">
@@ -87,22 +87,22 @@
 <tr class="odd">
 <td>High level abstraction</td>
 <td>Every abstraction comes with a cost, the lower the level the better (4)</td>
-<td>Code generation, Classes, Templates</td>
+<td>Code Generation, Classes, Templates</td>
 </tr>
 <tr class="even">
 <td>Smart pointer</td>
-<td>Those have hidden costs and threading issues (4)</td>
+<td>They have hidden costs and threading issues (4)</td>
 <td><code>std::unique_ptr&lt;int&gt;</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="encouraged">Encouraged</h2>
-<p>In contrast to the lists above it is strongly recommended to use the following patterns and technics.</p>
+<p>In contrast to the list above, it is strongly recommended to use the following patterns and techniques.</p>
 <table>
 <colgroup>
-<col style="width: 16%" />
-<col style="width: 59%" />
-<col style="width: 23%" />
+<col style="width: 19%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -113,13 +113,13 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>cache friendly Container</td>
-<td>Container that barely miss L1 cache</td>
+<td>Cache friendly containers</td>
+<td>Containers that barely miss L1 cache</td>
 <td><code>std::vector, std::array</code></td>
 </tr>
 <tr class="even">
 <td><code>new</code> allocations</td>
-<td>This allocates memory dynamically (malloc)</td>
+<td>Dynamic memory allocation (malloc)</td>
 <td><code>char* chars = new char[x]</code></td>
 </tr>
 <tr class="odd">
@@ -128,33 +128,33 @@
 <td>such as functions</td>
 </tr>
 <tr class="even">
-<td>structs</td>
+<td>Structs</td>
 <td>No need to worry about visibility</td>
 <td><code>struct T { int x; }</code></td>
 </tr>
 <tr class="odd">
-<td>namespaces</td>
+<td>Namespaces</td>
 <td>Every code should be within a namespace to reduce ambiguity</td>
 <td><code>namespace tge::test {}</code></td>
 </tr>
 <tr class="even">
 <td>Macros</td>
-<td>Macros can shift some performance cost to the compile time</td>
+<td>Macros can shift some performance cost to compile time</td>
 <td><code>#define CHECK(x) if(x) {}</code></td>
 </tr>
 <tr class="odd">
-<td>std::atomic, VkFence …</td>
-<td>for thread safety</td>
+<td><code>std::atomic</code>, <code>VkFence</code> …</td>
+<td>For thread safety</td>
 <td><code>std::atomic&lt;bool&gt;</code></td>
 </tr>
 <tr class="even">
-<td>fixed memory allocation</td>
-<td>reduces the cost of dynamic allocation</td>
+<td>Fixed memory allocation</td>
+<td>Reduces the cost of dynamic allocation</td>
 <td><code>char test[25]</code></td>
 </tr>
 <tr class="odd">
 <td><code>inline</code></td>
-<td>Encourages the compile to inline the function to reduce calling overhead</td>
+<td>Encourages the compiler to inline the function, to reduce calling overhead</td>
 <td><code>inline void test() {}</code></td>
 </tr>
 <tr class="even">
@@ -164,22 +164,22 @@
 </tr>
 <tr class="odd">
 <td>Error return codes</td>
-<td>If there should be the need for error handling</td>
+<td>If there’s the need for error handling</td>
 <td><code>if(vkCreateDevice(...))</code></td>
 </tr>
 <tr class="even">
 <td>Small size optimization</td>
-<td>use pointers in dynamic lists and allocate the contents differently if they are bigger</td>
+<td>Use pointers in dynamic lists and allocate the contents differently, when they are bigger</td>
 <td><code>std::vector&lt;Test*&gt;</code></td>
 </tr>
 <tr class="odd">
-<td>constexpr, consteval</td>
-<td>this moves cost from the runtime to the compile time</td>
+<td><code>constexpr</code>, <code>consteval</code></td>
+<td>This moves cost from the runtime to the compile time</td>
 <td><code>constexpr uint32_t test = 32</code></td>
 </tr>
 <tr class="even">
-<td>const</td>
-<td>Gives the compile a better base to optimize</td>
+<td><code>const</code></td>
+<td>Gives the compiler a better base to optimize</td>
 <td><code>void test(const char* name);</code></td>
 </tr>
 <tr class="odd">
@@ -188,15 +188,15 @@
 <td></td>
 </tr>
 <tr class="even">
-<td>vector::reserve</td>
-<td>Use reserve or resize before using a vector to reduce the relocations</td>
+<td><code>vector::reserve</code></td>
+<td>Use <code>reserve</code> or <code>resize</code>, before using a vector to reduce the relocations</td>
 <td><code>vec.reserve(200);</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="additional">Additional</h2>
-<p>The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems are based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. For more information on the Vulkan restrictions visit <a href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf">The Vulkan Specification</a></p>
-<p>We also have a set of style guidelines for contributions to our repositories. To see them visit <a href="https://troblecodings.com/contribution.html">troblecodings.com</a></p>
+<p>The systems need to run on different hardware whom themselves may have additional hardware restrictions those should always we queried and cached while starting up. Furthermore because of the Vulkan API, which the Engine and therefore a large part of our systems are based on, enforces a lot of other restrictions, such as GPU memory offsets, whom can also differ between hardware. Refer to <a href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf">The Vulkan Specification</a> for more information. The project is currently required to use MSVC 2019 or newer as compiler. In release mode O2 optimization is being used. The software requires any sort of graphics module as hardware, which supports the vulkan api. This can either be a onboard graphics chip or a full on card. This also should run on all x86 and x64 processors.</p>
+<p>We also have a set of style guidelines for contributions to our repositories. Refer to <a href="https://troblecodings.com/contribution.html">troblecodings.com</a></p>
 <h2 id="sources">Sources</h2>
 <ol type="1">
 <li><p><a href="https://www.youtube.com/watch?v=dOfucXtyEsU">CppCon 2018: Matt Godbolt “The Bits Between the Bits: How We Get to main”</a></p></li>
