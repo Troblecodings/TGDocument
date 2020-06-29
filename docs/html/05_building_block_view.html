@@ -1,104 +1,95 @@
 <h1 id="building-block-view">Building Block View</h1>
-<p><strong>Content</strong></p>
-<p>The building block view shows the static decomposition of the system into building blocks (modules, components, subsystems, classes, interfaces, packages, libraries, frameworks, layers, partitions, tiers, functions, macros, operations, datas structures, …) as well as their dependencies (relationships, associations, …)</p>
-<p>This view is mandatory for every architecture documentation. In analogy to a house this is the <em>floor plan</em>.</p>
-<p><strong>Motivation</strong></p>
-<p>Maintain an overview of your source code by making its structure understandable through abstraction.</p>
-<p>This allows you to communicate with your stakeholder on an abstract level without disclosing implementation details.</p>
-<p><strong>Form</strong></p>
-<p>The building block view is a hierarchical collection of black boxes and white boxes (see figure below) and their descriptions.</p>
+<h2 id="shadertool">ShaderTool</h2>
+<p>The primary purpose of the ShaderTool was to compile shader into the Engine. The tool started to grow because of it’s console interface which makes it ideal for tooling.</p>
 <figure>
-<img src="images/05_building_blocks-EN.png" alt="" /><figcaption>Hierarchy of building blocks</figcaption>
+<img src="images/whitebox1.png" alt="" /><figcaption>Whitebox</figcaption>
 </figure>
-<p><strong>Level 1</strong> is the white box description of the overall system together with black box descriptions of all contained building blocks.</p>
-<p><strong>Level 2</strong> zooms into some building blocks of level 1. Thus it contains the white box description of selected building blocks of level 1, together with black box descriptions of their internal building blocks.</p>
-<p><strong>Level 3</strong> zooms into selected building blocks of level 2, and so on.</p>
-<h2 id="whitebox-overall-system">Whitebox Overall System</h2>
-<p>Here you describe the decomposition of the overall system using the following white box template. It contains</p>
-<ul>
-<li>an overview diagram</li>
-<li>a motivation for the decomposition</li>
-<li>black box descriptions of the contained building blocks. For these we offer you alternatives:
-<ul>
-<li>use <em>one</em> table for a short and pragmatic overview of all contained building blocks and their interfaces</li>
-<li>use a list of black box descriptions of the building blocks according to the black box template (see below). Depending on your choice of tool this list could be sub-chapters (in text files), sub-pages (in a Wiki) or nested elements (in a modeling tool).</li>
-</ul></li>
-<li>(optional:) important interfaces, that are not explained in the black box templates of a building block, but are very important for understanding the white box. Since there are so many ways to specify interfaces why do not provide a specific template for them. In the worst case you have to specify and describe syntax, semantics, protocols, error handling, restrictions, versions, qualities, necessary compatibilities and many things more. In the best case you will get away with examples or simple signatures.</li>
-</ul>
-<p><strong><em>&lt;Overview Diagram&gt;</em></strong></p>
-<dl>
-<dt>Motivation</dt>
-<dd><p><em>&lt;text explanation&gt;</em></p>
-</dd>
-<dt>Contained Building Blocks</dt>
-<dd><p><em>&lt;Description of contained building block (black boxes)&gt;</em></p>
-</dd>
-<dt>Important Interfaces</dt>
-<dd><p><em>&lt;Description of important interfaces&gt;</em></p>
-</dd>
-</dl>
-<p>Insert your explanations of black boxes from level 1:</p>
-<p>If you use tabular form you will only describe your black boxes with name and responsibility according to the following schema:</p>
 <table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 81%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>Name</th>
-<th>Responsibility</th>
+<th>Subsystem</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><em>&lt;Blackbox 1&gt;</em></td>
-<td><em>&lt;Text&gt;</em></td>
+<td>Console Interface</td>
+<td>Allowes for Console input and forwards the arguments to the give subsystem</td>
 </tr>
 <tr class="even">
-<td><em>&lt;Blackbox 2&gt;</em></td>
-<td><em>&lt;Text&gt;</em></td>
+<td>Shader Interface</td>
+<td>This system compiles shader and embeds them into the Engine</td>
+</tr>
+<tr class="odd">
+<td>Pipe Interface</td>
+<td>Analyzes the compiled shaders and creates the according pipeline information</td>
+</tr>
+<tr class="even">
+<td>Ressource System</td>
+<td>This system administrates all game ressources.</td>
 </tr>
 </tbody>
 </table>
-<p>If you use a list of black box descriptions then you fill in a separate black box template for every important building block . Its headline is the name of the black box.</p>
-<h3 id="name-black-box-1">&lt;Name black box 1</h3>
-<p>Here you describe &lt;black box 1&gt; according the the following black box template:</p>
-<ul>
-<li>Purpose/Responsibility</li>
-<li>Interface(s), when they are not extracted as separate paragraphs. This interfaces may include qualities and performance characteristics.</li>
-<li>(Optional) Quality-/Performance characteristics of the black box, e.g.availability, run time behavior, ….</li>
-<li>(Optional) directory/file location</li>
-<li>(Optional) Fulfilled requirements (if you need traceability to requirements).</li>
-<li>(Optional) Open issues/problems/risks</li>
-</ul>
-<p><em>&lt;Purpose/Responsibility&gt;</em></p>
-<p><em>&lt;Interface(s)&gt;</em></p>
-<p><em>&lt;(Optional) Quality/Performance Characteristics&gt;</em></p>
-<p><em>&lt;(Optional) Directory/File Location&gt;</em></p>
-<p><em>&lt;(Optional) Fulfilled Requirements&gt;</em></p>
-<p><em>&lt;(optional) Open Issues/Problems/Risks&gt;</em></p>
-<h3 id="name-black-box-2">&lt;Name black box 2</h3>
-<p><em>&lt;black box template&gt;</em></p>
-<h3 id="name-black-box-n">&lt;Name black box n</h3>
-<p><em>&lt;black box template&gt;</em></p>
-<h3 id="name-interface-1">&lt;Name interface 1</h3>
-<p>…</p>
-<h3 id="name-interface-m">&lt;Name interface m</h3>
-<h2 id="level-2">Level 2</h2>
-<p>Here you can specify the inner structure of (some) building blocks from level 1 as white boxes.</p>
-<p>You have to decide which building blocks of your system are important enough to justify such a detailed description. Please prefer relevance over completeness. Specify important, surprising, risky, complex or volatile building blocks. Leave out normal, simple, boring or standardized parts of your system</p>
-<h3 id="white-box-building-block-1">White Box *&lt;building block 1</h3>
-<p>…describes the internal structure of <em>building block 1</em>.</p>
-<p><em>&lt;white box template&gt;</em></p>
-<h3 id="white-box-building-block-2">White Box *&lt;building block 2</h3>
-<p><em>&lt;white box template&gt;</em></p>
-<p>…</p>
-<h3 id="white-box-building-block-m">White Box *&lt;building block m</h3>
-<p><em>&lt;white box template&gt;</em></p>
-<h2 id="ebene-3">Ebene 3</h2>
-<p>Here you can specify the inner structure of (some) building blocks from level 2 as white boxes.</p>
-<p>When you need more detailed levels of your architecture please copy this part of arc42 for additional levels.</p>
-<h3 id="white-box-_building-block-x.1_">White Box &lt;_building block x.1_</h3>
-<p>Specifies the internal structure of <em>building block x.1</em>.</p>
-<p><em>&lt;white box template&gt;</em></p>
-<h3 id="white-box-_building-block-x.2_">White Box &lt;_building block x.2_</h3>
-<p><em>&lt;white box template&gt;</em></p>
-<h3 id="white-box-_building-block-y.1_">White Box &lt;_building block y.1_</h3>
-<p><em>&lt;white box template&gt;</em></p>
+<h2 id="tgengine">TGEngine</h2>
+<p>The decomposition has historical resons</p>
+<figure>
+<img src="images/whitebox2.png" alt="" /><figcaption>Whitebox</figcaption>
+</figure>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Subsystem</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>IO</td>
+<td>For general in and output managment</td>
+</tr>
+<tr class="even">
+<td>UI</td>
+<td>Contains all user interface components</td>
+</tr>
+<tr class="odd">
+<td>Gamecontent</td>
+<td>Everything that can be put into the game (Actors, Lights …)</td>
+</tr>
+<tr class="even">
+<td>Pipeline</td>
+<td>This is the heart of the engine and contains everything needed to create a Vulkan Application with the according featureset needed</td>
+</tr>
+<tr class="odd">
+<td>General IO</td>
+<td>Platform independency layer for file handling</td>
+</tr>
+<tr class="even">
+<td>Properties</td>
+<td>A small XML reader with a given schema</td>
+</tr>
+<tr class="odd">
+<td>Ressourcesystem</td>
+<td>the counterpart to the ShaderTools Ressource System, except this one only reads the ressources</td>
+</tr>
+<tr class="even">
+<td>Memory Layer</td>
+<td>The own Memory managmet for the GPU as well as the system memory</td>
+</tr>
+<tr class="odd">
+<td>Pipeline Stages</td>
+<td>Consists of all passes and commands recorded to the GPU</td>
+</tr>
+<tr class="even">
+<td>Buffer</td>
+<td>All the static memory buffering on the GPU</td>
+</tr>
+</tbody>
+</table>

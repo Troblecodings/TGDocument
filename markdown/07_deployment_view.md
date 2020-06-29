@@ -1,93 +1,23 @@
 # Deployment View
 
-**Content**
+The following chapter describes the different build environments and the artifacts that each produce. This also covers how and for what they are used.
 
-The deployment view describes:
+## TGEngine and ShaderTool
 
-1. the technical infrastructure used to execute your system, with
-   infrastructure elements like geographical locations, environments,
-   computers, processors, channels and net topologies as well as other
-   infrastructure elements and
-2. the mapping of (software) building blocks to that infrastructure
-   elements.
+This part is about the [https://github.com/Troblecodings/TGEngine](https://github.com/Troblecodings/TGEngine) repository. This repository should not be used by the engine users. For user who want to make a game with the engine you should use the Template repository or use this repository as submodule.
 
-Often systems are executed in different environments, e.g. development
-environment, test environment, production environment. In such cases you
-should document all relevant environments.
+Like Google, we want to enable the compiler to optimise our code hence we use static linkage.
 
-Especially document the deployment view when your software is executed
-as distributed system with more then one computer, processor, server or
-container or when you design and construct your own hardware processors
-and chips.
+There is no auto deployment for anything but the ShaderTool. The Artifacts produced by the compile pipeline can be accessed through the Artifacts tab on the given build. This produces a runnable dotnet core application. This should be able to run through the dotnet command on Linux and Mac. On windows you just need to execute the given executable (.exe) file. The ShaderTool manages your projects and resources. The engine itself produces a static library which can be used to link your project against. The engine itself currently only works on windows systems with the according Vulkan 1.0 compatible Graphics device. For more information on wether your system is Vulkan capable or not please visit [the gpuinfo database](https://vulkan.gpuinfo.org/). *Note: There is a working Linux compile chain however there is currently no demo as the window creation is still missing*
 
-From a software perspective it is sufficient to capture those elements
-of the infrastructure that are needed to show the deployment of your
-building blocks. Hardware architects can go beyond that and describe the
-infrastructure to any level of detail they need to capture.
+## Template
 
-**Motivation**
+This part is about the [https://github.com/Troblecodings/Template](https://github.com/Troblecodings/Template) repository. This repository should normally be used to create a new game project. However as there is currently a github bug that prevents the submodule template to work correctly. Hence we recommend to manually install the submodule and still use the project but reset the contents. A getting started page is currently being worked on. For a example on how that could look see TGTest. This system should produce a runnable with the same restrictions as the engine itself.
 
-Software does not run without hardware. This underlying infrastructure
-can and will influence your system and/or some cross-cutting concepts.
-Therefore, you need to know the infrastructure.
+## TGTest
 
-Maybe the highest level deployment diagram is already contained in
-section 3.2. as technical context with your own infrastructure as ONE
-black box. In this section you will zoom into this black box using
-additional deployment diagrams:
+This part is about the [https://github.com/Troblecodings/TGTest](https://github.com/Troblecodings/TGTest) repository. This (what a coincidence) is a test repository to show of current features and general usage of the engine. This again produces a runnable file with the same restrictions as the engine itself.
 
-- UML offers deployment diagrams to express that view. Use it,
-    probably with nested diagrams, when your infrastructure is more
-    complex.
-- When your (hardware) stakeholders prefer other kinds of diagrams
-    rather than the deployment diagram, let them use any kind that is
-    able to show nodes and channels of the infrastructure.
+## TGDocument
 
-## Infrastructure Level 1
-
-Describe (usually in a combination of diagrams, tables, and text):
-
-- the distribution of your system to multiple locations, environments,
-    computers, processors, .. as well as the physical connections
-    between them
-- important justification or motivation for this deployment structure
-- Quality and/or performance features of the infrastructure
-- the mapping of software artifacts to elements of the infrastructure
-
-For multiple environments or alternative deployments please copy that
-section of arc42 for all relevant environments.
-
-***\<Overview Diagram\>***
-
-Motivation
-
-:   *\<explanation in text form\>*
-
-Quality and/or Performance Features
-
-:   *\<explanation in text form\>*
-
-Mapping of Building Blocks to Infrastructure
-
-:   *\<description of the mapping\>*
-
-## Infrastructure Level 2
-
-Here you can include the internal structure of (some) infrastructure
-elements from level 1.
-
-Please copy the structure from level 1 for each selected element.
-
-### *\<Infrastructure Element 1
-
-*\<diagram + explanation\>*
-
-### *\<Infrastructure Element 2
-
-*\<diagram + explanation\>*
-
-...
-
-### *\<Infrastructure Element n
-
-*\<diagram + explanation\>*
+That is the repository this documentation is saved in. [https://troblecodings.github.io/TGDocument/](https://troblecodings.github.io/TGDocument/)
