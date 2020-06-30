@@ -14,7 +14,7 @@ There is no auto deployment for anything but the ShaderTool. The artifacts produ
 
 ## Template
 
-This part is about the [Template](https://github.com/Troblecodings/Template) repository. This repository should normally be used to create a new game project. However as there is currently a github bug that prevents the submodule template to work correctly. Hence we recommend to manually install the submodule and still use the project but reset the contents. A getting started page is currently being worked on. For a example on how that could look see TGTest. This system should produce a runnable with the same restrictions as the engine itself.
+This part is about the [Template](https://github.com/Troblecodings/Template) repository. This repository should normally be used to create a new game project. However as there is currently a GitHub bug that prevents the submodule template to work correctly. Hence we recommend to manually install the submodule and still use the project, but reset the contents. A getting started page is currently being worked on. For a example on how that could look see TGTest. This system should produce a runnable with the same restrictions as the engine itself.
 
 ## TGTest
 
