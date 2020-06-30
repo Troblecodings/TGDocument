@@ -1,93 +1,29 @@
 # Deployment View
 
-**Content**
+The following chapter describes the different build environments and the artifacts that each one produces. This also covers how and for what they are used.
 
-The deployment view describes:
+**To build your own versions you need to download all dependencies using the setup.py script in the engine repository (or submodule). Otherwise it will not compile.** For more information see [https://troblecodings.com/](https://troblecodings.com/)
 
-1. the technical infrastructure used to execute your system, with
-   infrastructure elements like geographical locations, environments,
-   computers, processors, channels and net topologies as well as other
-   infrastructure elements and
-2. the mapping of (software) building blocks to that infrastructure
-   elements.
+## TGEngine and ShaderTool
 
-Often systems are executed in different environments, e.g. development
-environment, test environment, production environment. In such cases you
-should document all relevant environments.
+This part is about the [TGEngine](https://github.com/Troblecodings/TGEngine) repository. This repository should not be used by the engine users. For user who want to make a game with the engine you should use the Template repository or use that repository as submodule.
 
-Especially document the deployment view when your software is executed
-as distributed system with more then one computer, processor, server or
-container or when you design and construct your own hardware processors
-and chips.
+Like Google, we want to enable the compiler to optimise our code hence we use static linkage.
 
-From a software perspective it is sufficient to capture those elements
-of the infrastructure that are needed to show the deployment of your
-building blocks. Hardware architects can go beyond that and describe the
-infrastructure to any level of detail they need to capture.
+There is no auto deployment for anything but the ShaderTool. The artifacts produced by the compile pipeline can be accessed through the artifacts tab on the given build. This produces a runnable dotnet core application. This should be able to run through the dotnet command on Linux and Mac. On windows you just need to execute the given executable (.exe) file. The ShaderTool manages your projects and resources. The engine itself produces a static library, which can be used to link your project against. The engine itself currently only works on Windows systems with the according Vulkan 1.0 compatible graphics device. For more information on whether your system is Vulkan capable or not please visit [the gpuinfo database](https://vulkan.gpuinfo.org/). *Note: There is a working Linux compile chain, however there is currently no demo as the window creation is still missing*
 
-**Motivation**
+## Template
 
-Software does not run without hardware. This underlying infrastructure
-can and will influence your system and/or some cross-cutting concepts.
-Therefore, you need to know the infrastructure.
+This part is about the [Template](https://github.com/Troblecodings/Template) repository. This repository should normally be used to create a new game project. However as there is currently a GitHub bug that prevents the submodule template to work correctly. Hence we recommend to manually install the submodule and still use the project, but reset the contents. A getting started page is currently being worked on. For a example on how that could look see TGTest. This system should produce a runnable with the same restrictions as the engine itself.
 
-Maybe the highest level deployment diagram is already contained in
-section 3.2. as technical context with your own infrastructure as ONE
-black box. In this section you will zoom into this black box using
-additional deployment diagrams:
+## TGTest
 
-- UML offers deployment diagrams to express that view. Use it,
-    probably with nested diagrams, when your infrastructure is more
-    complex.
-- When your (hardware) stakeholders prefer other kinds of diagrams
-    rather than the deployment diagram, let them use any kind that is
-    able to show nodes and channels of the infrastructure.
+This part is about the [TGTest](https://github.com/Troblecodings/TGTest) repository. This is a test repository to show off current features and general usage of the engine. This again produces a runnable file with the same restrictions as the engine itself. This already contains a version of the Engine as submodule.
 
-## Infrastructure Level 1
+## TGEditor
 
-Describe (usually in a combination of diagrams, tables, and text):
+The [TGEditor](https://github.com/Troblecodings/TGEditor) repository holds the editor source code and it's resources. The editor is built upon the engine and is used as GUI for the ShaderTool. Therefore it produces a runnable file as well as a TGEngine Resource File (.tgr) file containing the baked resources from our resource system. On top of the restrictions applied by the engine the editor needs a working ShaderTool artifact, which is included in the repository under the TGEditor folder.
 
-- the distribution of your system to multiple locations, environments,
-    computers, processors, .. as well as the physical connections
-    between them
-- important justification or motivation for this deployment structure
-- Quality and/or performance features of the infrastructure
-- the mapping of software artifacts to elements of the infrastructure
+## TGDocument
 
-For multiple environments or alternative deployments please copy that
-section of arc42 for all relevant environments.
-
-***\<Overview Diagram\>***
-
-Motivation
-
-:   *\<explanation in text form\>*
-
-Quality and/or Performance Features
-
-:   *\<explanation in text form\>*
-
-Mapping of Building Blocks to Infrastructure
-
-:   *\<description of the mapping\>*
-
-## Infrastructure Level 2
-
-Here you can include the internal structure of (some) infrastructure
-elements from level 1.
-
-Please copy the structure from level 1 for each selected element.
-
-### *\<Infrastructure Element 1
-
-*\<diagram + explanation\>*
-
-### *\<Infrastructure Element 2
-
-*\<diagram + explanation\>*
-
-...
-
-### *\<Infrastructure Element n
-
-*\<diagram + explanation\>*
+This is the repository which this documentation is saved in. The HTML Version is available here: [TGDocument](https://troblecodings.github.io/TGDocument/)
