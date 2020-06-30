@@ -26,4 +26,4 @@ The [TGEditor](https://github.com/Troblecodings/TGEditor) repository holds the e
 
 ## TGDocument
 
-That is the repository this documentation is saved in. HTML Version available [TGDocument](https://troblecodings.github.io/TGDocument/)
+This is the repository which this documentation is saved in. The HTML Version is available here: [TGDocument](https://troblecodings.github.io/TGDocument/)
