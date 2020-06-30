@@ -1,6 +1,6 @@
 <h1 id="building-block-view">Building Block View</h1>
 <h2 id="shadertool">ShaderTool</h2>
-<p>The primary purpose of the ShaderTool was to compile shader into the Engine. The tool started to grow because of it’s console interface which makes it ideal for tooling.</p>
+<p>The primary purpose of the ShaderTool was to compile shader into the Engine. The tool started to grow because of its console interface, which makes it ideal for tooling.</p>
 <figure>
 <img src="images/whitebox1.png" alt="" /><figcaption>Whitebox</figcaption>
 </figure>
@@ -18,24 +18,24 @@
 <tbody>
 <tr class="odd">
 <td>Console Interface</td>
-<td>Allowes for Console input and forwards the arguments to the give subsystem</td>
+<td>Allow s for console input and forwards the arguments to the given subsystem</td>
 </tr>
 <tr class="even">
 <td>Shader Interface</td>
-<td>This system compiles shader and embeds them into the Engine</td>
+<td>This system compiles shader and embeds them into the engine</td>
 </tr>
 <tr class="odd">
 <td>Pipe Interface</td>
 <td>Analyzes the compiled shaders and creates the according pipeline information</td>
 </tr>
 <tr class="even">
-<td>Ressource System</td>
-<td>This system administrates all game ressources.</td>
+<td>Resource System</td>
+<td>This system administrates all game resources.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="tgengine">TGEngine</h2>
-<p>The decomposition has historical resons</p>
+<p>The decomposition has historical reasons</p>
 <figure>
 <img src="images/whitebox2.png" alt="" /><figcaption>Whitebox</figcaption>
 </figure>
@@ -76,18 +76,22 @@
 <td>A small XML reader with a given schema</td>
 </tr>
 <tr class="odd">
-<td>Ressourcesystem</td>
-<td>the counterpart to the ShaderTools Ressource System, except this one only reads the ressources</td>
+<td>Resourcesystem</td>
+<td>the counterpart to the ShaderTools resource system, except this one only reads the resources</td>
 </tr>
 <tr class="even">
-<td>Memory Layer</td>
-<td>The own Memory managmet for the GPU as well as the system memory</td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>Memory Layer</td>
+<td>The own memory management for the GPU, as well as the system memory</td>
+</tr>
+<tr class="even">
 <td>Pipeline Stages</td>
 <td>Consists of all passes and commands recorded to the GPU</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Buffer</td>
 <td>All the static memory buffering on the GPU</td>
 </tr>
