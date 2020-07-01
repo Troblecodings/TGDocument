@@ -14,7 +14,7 @@ Therefore, following things are not allowed.
 | Per object function        | On a large scale those functions pile up a lot of overhead (5)                      | `texture.create();`                                |
 | Object-Orientation         | The basic nature of object orientation misses the point of data transformation (5)  | `texture.getWidth(); // No optimization guarantee` |
 | DLLs                       | They remove the the optimizers ability to optimize, which is really bad (2)         |                                                    |
-| runtime polymorphism       | This hits cold memory and misses the branch prediction                                | `virtual toString();`                              |
+| runtime polymorphism       | This hits cold memory and misses the branch prediction                              | `virtual toString();`                              |
 
 ## Reduced allowed
 
@@ -54,13 +54,18 @@ In contrast to the list above, it is strongly recommended to use the following p
 
 ## Additional
 
-The systems need to run on different hardware whom themselves may have additional
-hardware restrictions those should always we queried and cached while starting up.
-Furthermore because of the Vulkan API, which the Engine and therefore a large part
-of our systems are based on, enforces a lot of other restrictions, such as GPU
-memory offsets, whom can also differ between hardware. Refer to
+The systems need to run on different hardware whom themselves may have
+additional hardware restrictions those should always we queried and cached while
+starting up. Furthermore because of the Vulkan API, which the Engine and
+therefore a large part of our systems are based on, enforces a lot of other
+restrictions, such as GPU memory offsets, whom can also differ between hardware.
+Refer to
 [The Vulkan Specification](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/pdf/vkspec.pdf)
-for more information. The project is currently required to use MSVC 2019 or newer as the compiler. O2 optimization is being used in release mode. The software requires any sort of graphics module, which supports the Vulkan API, as hardware. This can either be a onboard graphics chip or a full-on card. This also should run on all x86 and x64 processors.  
+for more information. The project is currently required to use MSVC 2019 or
+newer as the compiler. O2 optimization is being used in release mode. The
+software requires any sort of graphics module, which supports the Vulkan API, as
+hardware. This can either be a onboard graphics chip or a full-on card. This
+also should run on all x86 and x64 processors.
 
 We also have a set of style guidelines for contributions to our repositories.
 Refer to [troblecodings.com](https://troblecodings.com/contribution.html)
