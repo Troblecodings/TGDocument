@@ -2,10 +2,10 @@
 
 ## Requirements Overview
 
-The goal is to create a small game, representing the functionality of
-the engine. It should run reasonably well. Any kind of underlying game
-design, such as level design, UX and such are not to be considered at
-the current stage, as our only focus is the underlying engine.
+The goal is to create a small game, representing the functionality of the
+engine. It should run reasonably well. Any kind of underlying game design, such
+as level design, UX and such are not to be considered at the current stage, as
+our only focus is the underlying engine.
 
 ## Quality Goals
 
@@ -19,8 +19,10 @@ the current stage, as our only focus is the underlying engine.
 ## Stakeholders
 
 - MrTroble, Discord: MrTroble#5516
-    - Makes the most decisions regarding the underlying architecture and needs to be able to implement features to all parts of the architecture
+    - Makes the most decisions regarding the underlying architecture and needs
+      to be able to implement features to all parts of the architecture
 - IceDynamix, Discord: IceDynamix#7153
-    - Implement all automated tasks regarding the project, implement features for the ShaderTool, and implement parts of the editor
+    - Implement all automated tasks regarding the project, implement features
+      for the ShaderTool, and implement parts of the editor
 - Clazilla, Discord: Clara#5179
     - Design the resources for the game and provide features for the ShaderTool

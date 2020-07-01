@@ -1,26 +1,11 @@
 # Solution Strategy
 
-**Contents**
-
-A short summary and explanation of the fundamental decisions and
-solution strategies, that shape the system's architecture. These include
-
-- technology decisions
-- decisions about the top-level decomposition of the system, e.g.
-  usage of an architectural pattern or design pattern
-- decisions on how to achieve key quality goals
-- relevant organizational decisions, e.g. selecting a development
-  process or delegating certain tasks to third parties.
-
-**Motivation**
-
-These decisions form the cornerstones for your architecture. They are
-the basis for many other detailed decisions or implementation rules.
-
-**Form**
-
-Keep the explanation of these key decisions short.
-
-Motivate what you have decided and why you decided that way, based upon
-your problem statement, the quality goals and key constraints. Refer to
-details in the following sections.
+Most of our decision making comes down to performance and future-proofing. We
+can attain performance by disregarding an object-oriented structure and focusing
+on a data-oriented one instead, which can be seen by the exclusion of classes to
+the project and uses of structs in its place. Other things to consider while
+developing the engine are using/managing memory efficiently with consideration
+of the L1 cache, which is the fastest of all available caches. This is
+accomplished by constraining use of more complex data types and using
+cache-friendlier data types instead. One example would be to use `std::vector`
+instead of `std::list`. Similar thinking is applied to other fields as well.
