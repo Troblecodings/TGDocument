@@ -1,46 +1,28 @@
 # Runtime View
 
-**Contents**
+## Adding a texture
 
-The runtime view describes concrete behavior and interactions of the system's
-building blocks in form of scenarios from the following areas:
+If the user wants to add a texture he can:
 
-- important use cases or features: how do building blocks execute them?
-- interactions at critical external interfaces: how do building blocks cooperate
-  with users and neighboring systems?
-- operation and administration: launch, start-up, stop
-- error and exception scenarios
+1. press the add-button in the editor
+2. then a file chooser opens
+3. there the user can select his textures
+4. if the user accepts his selection the editor starts the shader tool with the according parameters (see [the ShaderTool docs](https://troblecodings.com/docs/shadertool.html))
+5. the shader tool now copies the selected textures to the resource folder
 
-Remark: The main criterion for the choice of possible scenarios (sequences,
-workflows) is their **architectural relevance**. It is **not** important to
-describe a large number of scenarios. You should rather document a
-representative selection.
+## Building a map
 
-**Motivation**
+If the user wants to build a map with its according resources he can:
 
-You should understand how (instances of) building blocks of your system perform
-their job and communicate at runtime. You will mainly capture scenarios in your
-documentation to communicate your architecture to stakeholders that are less
-willing or able to read and understand the static models (building block view,
-deployment view).
+1. he needs to execute the shader tool with the map make command
+2. the shader tool then gathers all according resources
+3. the according resources will then be build into a map file (see [the map file docs](https://troblecodings.com/fileformat.html))
 
-**Form**
+## Loading a resource file
 
-There are many notations for describing scenarios, e.g.
+If the developer wants to load a resource file he has to:
 
-- numbered list of steps (in natural language)
-- activity diagrams or flow charts
-- sequence diagrams
-- BPMN or EPCs (event process chains)
-- state machines
-- ...
-
-## \<Runtime Scenario 1
-
-- *\<insert runtime diagram or textual description of the scenario\>*
-- *\<insert description of the notable aspects of the interactions
-  between the building block instances depicted in this diagram.\>*
-
-## \<Runtime Scenario 2
-
-## \<Runtime Scenario n
+1. invoke the loadResourceFile function
+2. the function then reads through the file
+3. for each resource the function allocates memory in the GPU or CPU
+4. the resources are then being copied into the according buffer
