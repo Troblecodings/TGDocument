@@ -1,27 +1,9 @@
 # Glossary
 
-**Contents**
-
-The most important domain and technical terms that your stakeholders use
-when discussing the system.
-
-You can also see the glossary as source for translations if you work in
-multi-language teams.
-
-**Motivation**
-
-You should clearly define your terms, so that all stakeholders
-
-- have an identical understanding of these terms
-- do not use synonyms and homonyms
-
-**Form**
-
-A table with columns \<Term\> and \<Definition\>.
-
-Potentially more columns in case you need translations.
-
-| Term         | Definition         |
-| ------------ | ------------------ |
-| *\<Term-1\>* | *\<Definition-1\>* |
-| *\<Term-2\>* | *\<Definition-2\>* |
+| Term | Definition                       |
+| ---- | -------------------------------- |
+| UBO  | Uniform Buffer Object            |
+| GUI  | Graphical User Interface         |
+| MSVC | Microsoft Visual Studio Compiler |
+| O2   | Optimize in favor of speed       |
+| API  | Application Program Interface    |
