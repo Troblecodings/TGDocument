@@ -1,29 +1,25 @@
 <h1 id="runtime-view">Runtime View</h1>
-<p><strong>Contents</strong></p>
-<p>The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:</p>
-<ul>
-<li>important use cases or features: how do building blocks execute them?</li>
-<li>interactions at critical external interfaces: how do building blocks cooperate with users and neighboring systems?</li>
-<li>operation and administration: launch, start-up, stop</li>
-<li>error and exception scenarios</li>
-</ul>
-<p>Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their <strong>architectural relevance</strong>. It is <strong>not</strong> important to describe a large number of scenarios. You should rather document a representative selection.</p>
-<p><strong>Motivation</strong></p>
-<p>You should understand how (instances of) building blocks of your system perform their job and communicate at runtime. You will mainly capture scenarios in your documentation to communicate your architecture to stakeholders that are less willing or able to read and understand the static models (building block view, deployment view).</p>
-<p><strong>Form</strong></p>
-<p>There are many notations for describing scenarios, e.g.</p>
-<ul>
-<li>numbered list of steps (in natural language)</li>
-<li>activity diagrams or flow charts</li>
-<li>sequence diagrams</li>
-<li>BPMN or EPCs (event process chains)</li>
-<li>state machines</li>
-<li>…</li>
-</ul>
-<h2 id="runtime-scenario-1">&lt;Runtime Scenario 1</h2>
-<ul>
-<li><em>&lt;insert runtime diagram or textual description of the scenario&gt;</em></li>
-<li><em>&lt;insert description of the notable aspects of the interactions between the building block instances depicted in this diagram.&gt;</em></li>
-</ul>
-<h2 id="runtime-scenario-2">&lt;Runtime Scenario 2</h2>
-<h2 id="runtime-scenario-n">&lt;Runtime Scenario n</h2>
+<h2 id="adding-a-texture">Adding a texture</h2>
+<p>If the user wants to add a texture he can:</p>
+<ol type="1">
+<li>press the add-button in the editor</li>
+<li>then a file chooser opens</li>
+<li>there the user can select his textures</li>
+<li>if the user accepts his selection the editor starts the shader tool with the according parameters (see <a href="https://troblecodings.com/docs/shadertool.html">the ShaderTool docs</a>)</li>
+<li>the shader tool now copies the selected textures to the resource folder</li>
+</ol>
+<h2 id="building-a-map">Building a map</h2>
+<p>If the user wants to build a map with its according resources he can:</p>
+<ol type="1">
+<li>he needs to execute the shader tool with the map make command</li>
+<li>the shader tool then gathers all according resources</li>
+<li>the according resources will then be build into a map file (see <a href="https://troblecodings.com/fileformat.html">the map file docs</a>)</li>
+</ol>
+<h2 id="loading-a-resource-file">Loading a resource file</h2>
+<p>If the developer wants to load a resource file he has to:</p>
+<ol type="1">
+<li>invoke the loadResourceFile function</li>
+<li>the function then reads through the file</li>
+<li>for each resource the function allocates memory in the GPU or CPU</li>
+<li>the resources are then being copied into the according buffer</li>
+</ol>
